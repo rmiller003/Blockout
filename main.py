@@ -10,6 +10,7 @@ class Game:
         # general setup
         pygame.init()
         self.display_surface = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
+        pygame.display.set_caption('Breakout-X')
 
     def run(selfself):
         last_time = time.time()
