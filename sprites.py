@@ -101,26 +101,32 @@ class Ball(pygame.sprite.Sprite):
             if direction == 'horizontal':
                 for sprite in overlap_sprites:
                     if self.rect.right >= sprite.rect.left and self.old_rect.right <= sprite.old_rect.left:
-                        self.rect.right = sprite.rect.left
+                        self.rect.right = sprite.rect.left - 1
                         self.pos.x = self.rect.x
                         self.direction.x *= -1
 
                     if self.rect.left <= sprite.rect.right and self.old_rect.left >= sprite.old_rect.right:
-                        self.rect.left = sprite.rect.right
+                        self.rect.left = sprite.rect.right + 1
                         self.pos.x = self.rect.x
                         self.direction.x *= -1
+
+                    if getattr(sprite,'health',None):
+                        sprite.get_damage(1)
 
             if direction == 'vertical':
                 for sprite in overlap_sprites:
                     if self.rect.bottom >= sprite.rect.top and self.old_rect.bottom <= sprite.old_rect.top:
-                        self.rect.bottom = sprite.rect.top
+                        self.rect.bottom = sprite.rect.top - 1
                         self.pos.y = self.rect.y
                         self.direction.y *= -1
 
                     if self.rect.top <= sprite.rect.bottom and self.old_rect.top >= sprite.old_rect.bottom:
-                        self.rect.top = sprite.rect.bottom
+                        self.rect.top = sprite.rect.bottom + 1
                         self.pos.y = self.rect.y
                         self.direction.y *= -1
+
+                    if getattr(sprite, 'health', None):
+                        sprite.get_damage(1)
 
     def update(self,dt):
         if self.active:
@@ -152,3 +158,15 @@ class Block(pygame.sprite.Sprite):
         self.image = pygame.Surface((BLOCK_WIDTH,BLOCK_HEIGHT,))
         self.rect = self.image.get_rect(topleft = pos)
         self.old_rect = self.rect.copy()
+
+        # damage information
+        self.health = int(block_type)
+
+    def get_damage(self,amount):
+        self.health -= amount
+
+        if self.health > 0:
+            # update the image
+            pass
+        else:
+            self.kill()
