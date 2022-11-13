@@ -1,8 +1,9 @@
-# This is Breakout-X developed in Python 3.9 by Robert Miller
+# This is Blockout-X developed in Python 3.9 by Robert Miller
 
 import pygame, sys, time
 from settings import *
 from sprites import Player, Ball, Block
+from surfacermaker import SurfaceMaker
 
 
 class Game:
@@ -21,7 +22,8 @@ class Game:
         self.block_sprites = pygame.sprite.Group()
 
         # setup
-        self.player = Player(self.all_sprites)
+        self.surfacemaker = SurfaceMaker()
+        self.player = Player(self.all_sprites,self.surfacemaker)
         self.ball = Ball(self.all_sprites, self.player, self.block_sprites)
         self.stage_setup()
 
@@ -41,7 +43,7 @@ class Game:
                     # find the x and y position for each individual block
                     x = col_index * (BLOCK_WIDTH + GAP_SIZE) + GAP_SIZE // 2
                     y = row_index * (BLOCK_HEIGHT + GAP_SIZE) + GAP_SIZE // 2
-                    Block(col,(x, y),[self.all_sprites,self.block_sprites])
+                    Block(col,(x, y),[self.all_sprites,self.block_sprites],self.surfacemaker)
 
     def run(self):
         last_time = time.time()
