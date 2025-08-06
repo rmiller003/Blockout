@@ -188,5 +188,8 @@ class Block(pygame.sprite.Sprite):
             self.game.ping_sound.play()
         else:
             self.game.score += self.score_value
+            if self.game.score >= self.game.score_milestone:
+                self.game.add_extra_ball()
+                self.game.score_milestone += 500
             self.game.ping_sound.play()
             self.kill()
