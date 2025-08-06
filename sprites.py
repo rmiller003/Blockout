@@ -91,10 +91,7 @@ class Ball(pygame.sprite.Sprite):
             if self.rect.bottom > WINDOW_HEIGHT:
                 self.active = False
                 self.direction.y = -1
-                if len(self.game.balls) == 1:
-                    self.game.lives -= 1
-                self.kill()
-                self.game.boing_sound.play()
+                self.game.lives -= 1
 
 
     def collision(self,direction):
@@ -179,8 +176,8 @@ class Block(pygame.sprite.Sprite):
 
         if self.health > 0:
             self.image = self.surfacemaker.get_surf(COLOR_LEGEND[str(self.health)],(BLOCK_WIDTH, BLOCK_HEIGHT))
-            # self.game.ping_sound.play()
+            self.game.ping_sound.play()
         else:
             self.game.score += self.score_value
-            # self.game.ping_sound.play()
+            self.game.ping_sound.play()
             self.kill()
