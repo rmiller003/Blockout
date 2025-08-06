@@ -38,9 +38,9 @@ class Game:
         self.font = pygame.font.Font(None, 40)
 
         # audio
-        # self.bg_music = pygame.mixer.Sound('audio/bg.ogg')
-        # self.bg_music.play(loops = -1)
-        # self.ping_sound = pygame.mixer.Sound('audio/ping.wav')
+        self.bg_music = pygame.mixer.Sound('audio.ogg')
+        self.bg_music.play(loops = -1)
+        self.ping_sound = pygame.mixer.Sound('ping.wav')
 
         # game state
         self.game_active = True
@@ -113,7 +113,7 @@ class Game:
 
                 if self.lives <= 0:
                     self.game_active = False
-                    # self.boing_sound.play()
+                    self.boing_sound.play()
 
                 # Draw the Frame
                 self.display_surface.blit(self.bg, (0, 0))
