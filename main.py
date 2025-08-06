@@ -21,10 +21,11 @@ class Game:
         self.all_sprites = pygame.sprite.Group()
         self.block_sprites = pygame.sprite.Group()
         self.ball_sprites = pygame.sprite.Group()
+        self.bullet_sprites = pygame.sprite.Group()
 
         # setup
         self.surfacemaker = SurfaceMaker()
-        self.player = Player(self.all_sprites,self.surfacemaker)
+        self.player = Player(self.all_sprites,self.surfacemaker, self)
         self.balls = pygame.sprite.Group()
         self.ball = Ball([self.all_sprites, self.balls], self.player, self.block_sprites, self)
 
@@ -72,6 +73,10 @@ class Game:
                     x = col_index * (BLOCK_WIDTH + GAP_SIZE) + GAP_SIZE // 2
                     y = row_index * (BLOCK_HEIGHT + GAP_SIZE) + GAP_SIZE // 2 + self.level * 20
                     Block(col,(x, y),[self.all_sprites,self.block_sprites],self.surfacemaker, self)
+
+        for ball in self.balls:
+            ball.speed *= 1.2
+
         if self.level > 1 and len(self.balls) < 2:
             self.ball = Ball([self.all_sprites, self.balls], self.player, self.block_sprites, self)
 
@@ -86,6 +91,12 @@ class Game:
         text_surf = self.font.render(score_text, True, (255,255,255))
         text_rect = text_surf.get_rect(midbottom = (WINDOW_WIDTH / 2, WINDOW_HEIGHT - 20))
         self.display_surface.blit(text_surf,text_rect)
+
+    def display_level(self):
+        level_text = f"Level: {self.level}"
+        text_surf = self.font.render(level_text, True, (255, 255, 255))
+        text_rect = text_surf.get_rect(bottomright=(WINDOW_WIDTH - 20, WINDOW_HEIGHT - 20))
+        self.display_surface.blit(text_surf, text_rect)
 
     def lose_life(self):
         self.lives -= 1
@@ -123,13 +134,15 @@ class Game:
                 if not self.paused:
                     # update the game
                     self.all_sprites.update(dt)
+                    self.bullet_sprites.update(dt)
+
+                    # collision
+                    pygame.sprite.groupcollide(self.bullet_sprites, self.block_sprites, True, True)
 
                     # check for win/loss
                     if not self.block_sprites:
                         self.level += 1
                         self.stage_setup()
-                        for ball in self.balls:
-                            ball.speed *= 1.2
 
                 if self.lives <= 0 and not self.balls:
                     self.game_active = False
@@ -141,6 +154,7 @@ class Game:
                 self.all_sprites.draw(self.display_surface)
                 self.display_hearts()
                 self.display_score()
+                self.display_level()
 
                 if self.paused:
                     paused_text = "Paused"
