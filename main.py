@@ -46,7 +46,7 @@ class Game:
         self.bg_music.play(loops = -1)
         self.ping_sound = pygame.mixer.Sound('ping.ogg')
         self.boing_sound = pygame.mixer.Sound('boing.ogg')
-        self.gunshot_sound = pygame.mixer.Sound('ping.ogg')
+        self.gunshot_sound = pygame.mixer.Sound('gun shot.ogg')
 
         # game state
         self.game_active = True
