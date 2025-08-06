@@ -46,12 +46,13 @@ class Player(pygame.sprite.Sprite):
         self.screen_constraint()
 
 class Ball(pygame.sprite.Sprite):
-    def __init__(self,groups,player,blocks):
+    def __init__(self,groups,player,blocks, game):
         super().__init__(groups)
 
         # collision objects
         self.player = player
         self.blocks = blocks
+        self.game = game
 
 
         # graphics setup
@@ -90,6 +91,7 @@ class Ball(pygame.sprite.Sprite):
             if self.rect.bottom > WINDOW_HEIGHT:
                 self.active = False
                 self.direction.y = -1
+                self.game.lives -= 1
 
 
     def collision(self,direction):
@@ -157,18 +159,20 @@ class Block(pygame.sprite.Sprite):
     def __init__(self,block_type,pos,groups,surfacemaker):
         super().__init__(groups)
         self.surfacemaker = surfacemaker
-        self.image = self.surfacemaker.get_surf('red',(BLOCK_WIDTH, BLOCK_HEIGHT))
-        self.rect = self.image.get_rect(topleft = pos)
-        self.old_rect = self.rect.copy()
 
         # damage information
         self.health = int(block_type)
+
+        # image
+        self.image = self.surfacemaker.get_surf(COLOR_LEGEND[block_type],(BLOCK_WIDTH, BLOCK_HEIGHT))
+        self.rect = self.image.get_rect(topleft = pos)
+        self.old_rect = self.rect.copy()
+
 
     def get_damage(self,amount):
         self.health -= amount
 
         if self.health > 0:
-            # update the image
-            pass
+            self.image = self.surfacemaker.get_surf(COLOR_LEGEND[str(self.health)],(BLOCK_WIDTH, BLOCK_HEIGHT))
         else:
             self.kill()
