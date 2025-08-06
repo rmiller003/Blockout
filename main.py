@@ -51,6 +51,8 @@ class Game:
         # game state
         self.game_active = True
         self.paused = False
+        self.ball_sit_time = 0
+        self.ball_sitting = False
 
         # level
         self.level = 1
@@ -147,6 +149,21 @@ class Game:
                     if not self.block_sprites:
                         self.level += 1
                         self.stage_setup()
+
+                # check for sitting balls
+                sitting_balls = [ball for ball in self.balls if not ball.active]
+                if sitting_balls:
+                    if not self.ball_sitting:
+                        self.ball_sitting = True
+                        self.ball_sit_time = time.time()
+                    else:
+                        if time.time() - self.ball_sit_time > 5:
+                            for ball in sitting_balls:
+                                ball.active = True
+                            self.ball_sitting = False
+                else:
+                    self.ball_sitting = False
+
 
                 if self.lives <= 0 and not self.balls:
                     self.game_active = False
