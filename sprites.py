@@ -36,6 +36,7 @@ class Player(pygame.sprite.Sprite):
     def shoot(self):
         if not self.game.bullet_sprites:
             Bullet(self.rect.midtop, [self.game.all_sprites, self.game.bullet_sprites])
+            self.game.gunshot_sound.play()
 
     def screen_constraint(self):
         if self.rect.right > WINDOW_WIDTH:

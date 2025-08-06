@@ -46,6 +46,7 @@ class Game:
         self.bg_music.play(loops = -1)
         self.ping_sound = pygame.mixer.Sound('ping.ogg')
         self.boing_sound = pygame.mixer.Sound('boing.ogg')
+        self.gunshot_sound = pygame.mixer.Sound('ping.ogg')
 
         # game state
         self.game_active = True
@@ -137,7 +138,10 @@ class Game:
                     self.bullet_sprites.update(dt)
 
                     # collision
-                    pygame.sprite.groupcollide(self.bullet_sprites, self.block_sprites, True, True)
+                    bullet_block_collisions = pygame.sprite.groupcollide(self.bullet_sprites, self.block_sprites, True, False)
+                    for bullet, blocks in bullet_block_collisions.items():
+                        for block in blocks:
+                            block.get_damage(1)
 
                     # check for win/loss
                     if not self.block_sprites:
