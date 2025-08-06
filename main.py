@@ -11,7 +11,6 @@ class Game:
 
         # general setup
         pygame.init()
-        pygame.mixer.stop()
         self.display_surface = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
         pygame.display.set_caption('Blockout')
 
@@ -21,7 +20,6 @@ class Game:
         # Sprite group setup
         self.all_sprites = pygame.sprite.Group()
         self.block_sprites = pygame.sprite.Group()
-        self.ball_sprites = pygame.sprite.Group()
 
         # setup
         self.surfacemaker = SurfaceMaker()
@@ -119,9 +117,17 @@ class Game:
                     for ball in self.balls:
                         ball.speed *= 1.2
 
+                self.check_missed_balls()
+
                 if self.lives <= 0:
                     self.game_active = False
-                    self.boing_sound.play()
+
+    def check_missed_balls(self):
+        if not self.balls and self.game_active:
+            self.lives -= 1
+            self.boing_sound.play()
+            if self.lives > 0:
+                Ball([self.all_sprites, self.balls], self.player, self.block_sprites, self)
 
                 # Draw the Frame
                 self.display_surface.blit(self.bg, (0, 0))
