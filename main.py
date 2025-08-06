@@ -131,7 +131,7 @@ class Game:
                         for ball in self.balls:
                             ball.speed *= 1.2
 
-                if self.lives <= 0:
+                if self.lives <= 0 and not self.balls:
                     self.game_active = False
                     self.bg_music.stop()
                     self.boing_sound.play()
