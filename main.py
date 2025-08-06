@@ -119,16 +119,17 @@ class Game:
                         if event.key == pygame.K_RETURN:
                             main()
 
-            if self.game_active and not self.paused:
-                # update the game
-                self.all_sprites.update(dt)
+            if self.game_active:
+                if not self.paused:
+                    # update the game
+                    self.all_sprites.update(dt)
 
-                # check for win/loss
-                if not self.block_sprites:
-                    self.level += 1
-                    self.stage_setup()
-                    for ball in self.balls:
-                        ball.speed *= 1.2
+                    # check for win/loss
+                    if not self.block_sprites:
+                        self.level += 1
+                        self.stage_setup()
+                        for ball in self.balls:
+                            ball.speed *= 1.2
 
                 if self.lives <= 0:
                     self.game_active = False

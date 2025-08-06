@@ -9,9 +9,9 @@ ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM default
 pygame 2.6.1 (SDL 2.28.4, Python 3.12.11)
 Hello from the pygame community. https://www.pygame.org/contribute.html
 Traceback (most recent call last):
-  File "/app/main.py", line 181, in <module>
+  File "/app/main.py", line 182, in <module>
     main()
-  File "/app/main.py", line 177, in main
+  File "/app/main.py", line 178, in main
     game = Game()
            ^^^^^^
   File "/app/main.py", line 44, in __init__
