@@ -30,7 +30,7 @@ class Player(pygame.sprite.Sprite):
         else:
             self.direction.x = 0
 
-        if keys[pygame.K_f] and self.game.level >= 3:
+        if keys[pygame.K_f]:
             self.shoot()
 
     def shoot(self):
