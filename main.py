@@ -38,6 +38,7 @@ class Game:
         # score
         self.score = 0
         self.font = pygame.font.Font(None, 40)
+        self.score_milestone = 500
 
         # audio
         self.bg_music = pygame.mixer.Sound('audio.ogg')
@@ -47,6 +48,7 @@ class Game:
 
         # game state
         self.game_active = True
+        self.paused = False
 
         # level
         self.level = 1
@@ -90,6 +92,9 @@ class Game:
         if self.lives > 0:
             self.ball = Ball([self.all_sprites, self.balls], self.player, self.block_sprites, self)
 
+    def add_extra_ball(self):
+        self.ball = Ball([self.all_sprites, self.balls], self.player, self.block_sprites, self)
+
     def run(self):
         last_time = time.time()
         while True:
@@ -107,12 +112,14 @@ class Game:
                         if event.key == pygame.K_SPACE:
                             for ball in self.balls:
                                 ball.active = True
+                        if event.key == pygame.K_p:
+                            self.paused = not self.paused
                 else:
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_RETURN:
                             main()
 
-            if self.game_active:
+            if self.game_active and not self.paused:
                 # update the game
                 self.all_sprites.update(dt)
 
@@ -125,6 +132,7 @@ class Game:
 
                 if self.lives <= 0:
                     self.game_active = False
+                    self.bg_music.stop()
                     self.boing_sound.play()
 
                 # Draw the Frame
@@ -132,6 +140,12 @@ class Game:
                 self.all_sprites.draw(self.display_surface)
                 self.display_hearts()
                 self.display_score()
+
+                if self.paused:
+                    paused_text = "Paused"
+                    text_surf = self.font.render(paused_text, True, (255, 255, 255))
+                    text_rect = text_surf.get_rect(center=(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2))
+                    self.display_surface.blit(text_surf, text_rect)
             else:
                 # game over screen
                 self.display_surface.fill('black')
