@@ -38,9 +38,6 @@ class Game:
         self.font = pygame.font.Font(None, 40)
 
         # audio
-        # self.bg_music = pygame.mixer.Sound('audio/bg.ogg')
-        # self.bg_music.play(loops = -1)
-        self.ping_sound = pygame.mixer.Sound('audio/ping.wav')
         # self.boing_sound = pygame.mixer.Sound('audio/boing.ogg')
 
         # game state
