@@ -3,12 +3,13 @@ from settings import *
 from random import choice
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self,groups,surfacemaker):
+    def __init__(self,groups,surfacemaker, game):
         super().__init__(groups)
 
         # setup
         self.surfacemaker = surfacemaker
         self.image = surfacemaker.get_surf('player',(WINDOW_WIDTH // 10,WINDOW_HEIGHT // 20))
+        self.game = game
 
 
         # position
@@ -28,6 +29,12 @@ class Player(pygame.sprite.Sprite):
             self.direction.x = -1
         else:
             self.direction.x = 0
+
+        if keys[pygame.K_f] and self.game.level >= 3:
+            self.shoot()
+
+    def shoot(self):
+        Bullet(self.rect.midtop, [self.game.all_sprites, self.game.bullet_sprites])
 
     def screen_constraint(self):
         if self.rect.right > WINDOW_WIDTH:
@@ -164,6 +171,20 @@ class Ball(pygame.sprite.Sprite):
             self.rect.midbottom = self.player.rect.midtop
             self.pos = pygame.math.Vector2(self.rect.topleft)
 
+class Bullet(pygame.sprite.Sprite):
+    def __init__(self, pos, groups):
+        super().__init__(groups)
+        self.image = pygame.Surface((5, 10))
+        self.image.fill('white')
+        self.rect = self.image.get_rect(midbottom=pos)
+        self.speed = 600
+
+    def update(self, dt):
+        self.rect.y -= self.speed * dt
+        if self.rect.bottom < 0:
+            self.kill()
+
+
 class Block(pygame.sprite.Sprite):
     def __init__(self,block_type,pos,groups,surfacemaker, game):
         super().__init__(groups)
@@ -180,8 +201,8 @@ class Block(pygame.sprite.Sprite):
         self.old_rect = self.rect.copy()
 
 
-    def get_damage(self,amount):
-        self.health -= amount
+    def get_damage(self, amount):
+        self.health -= 1
 
         if self.health > 0:
             self.image = self.surfacemaker.get_surf(COLOR_LEGEND[str(self.health)],(BLOCK_WIDTH, BLOCK_HEIGHT))
