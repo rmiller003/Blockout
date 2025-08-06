@@ -16,7 +16,7 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(midbottom = (WINDOW_WIDTH // 2,WINDOW_HEIGHT - 20))
         self.old_rect = self.rect.copy()
         self.direction = pygame.math.Vector2()
-        self.speed = 500
+        self.speed = 750
         self.pos = pygame.math.Vector2(self.rect.topleft)
 
 
