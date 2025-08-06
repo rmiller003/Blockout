@@ -11,6 +11,7 @@ class Game:
 
         # general setup
         pygame.init()
+        pygame.mixer.stop()
         self.display_surface = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
         pygame.display.set_caption('Blockout')
 
@@ -20,11 +21,13 @@ class Game:
         # Sprite group setup
         self.all_sprites = pygame.sprite.Group()
         self.block_sprites = pygame.sprite.Group()
+        self.ball_sprites = pygame.sprite.Group()
 
         # setup
         self.surfacemaker = SurfaceMaker()
         self.player = Player(self.all_sprites,self.surfacemaker)
-        self.ball = Ball(self.all_sprites, self.player, self.block_sprites, self)
+        self.balls = pygame.sprite.Group()
+        self.ball = Ball([self.all_sprites, self.balls], self.player, self.block_sprites, self)
 
         # hearts
         self.heart_surf = pygame.image.load('ball.png').convert_alpha()
@@ -40,7 +43,8 @@ class Game:
         # audio
         self.bg_music = pygame.mixer.Sound('audio.ogg')
         self.bg_music.play(loops = -1)
-        self.ping_sound = pygame.mixer.Sound('ping.wav')
+        self.ping_sound = pygame.mixer.Sound('ping.ogg')
+        self.boing_sound = pygame.mixer.Sound('ping.ogg')
 
         # game state
         self.game_active = True
@@ -67,6 +71,8 @@ class Game:
                     x = col_index * (BLOCK_WIDTH + GAP_SIZE) + GAP_SIZE // 2
                     y = row_index * (BLOCK_HEIGHT + GAP_SIZE) + GAP_SIZE // 2 + self.level * 20
                     Block(col,(x, y),[self.all_sprites,self.block_sprites],self.surfacemaker, self)
+        if self.level > 1 and len(self.balls) < 2:
+            self.ball = Ball([self.all_sprites, self.balls], self.player, self.block_sprites, self)
 
     def display_hearts(self):
         for i in range(self.lives):
@@ -95,7 +101,8 @@ class Game:
                 if self.game_active:
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_SPACE:
-                            self.ball.active = True
+                            for ball in self.balls:
+                                ball.active = True
                 else:
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_RETURN:
@@ -109,7 +116,8 @@ class Game:
                 if not self.block_sprites:
                     self.level += 1
                     self.stage_setup()
-                    self.ball.speed *= 1.1
+                    for ball in self.balls:
+                        ball.speed *= 1.2
 
                 if self.lives <= 0:
                     self.game_active = False

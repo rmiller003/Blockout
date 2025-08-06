@@ -91,7 +91,10 @@ class Ball(pygame.sprite.Sprite):
             if self.rect.bottom > WINDOW_HEIGHT:
                 self.active = False
                 self.direction.y = -1
-                self.game.lives -= 1
+                if len(self.game.balls) == 1:
+                    self.game.lives -= 1
+                self.kill()
+                self.game.boing_sound.play()
 
 
     def collision(self,direction):
