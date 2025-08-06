@@ -34,7 +34,8 @@ class Player(pygame.sprite.Sprite):
             self.shoot()
 
     def shoot(self):
-        Bullet(self.rect.midtop, [self.game.all_sprites, self.game.bullet_sprites])
+        if not self.game.bullet_sprites:
+            Bullet(self.rect.midtop, [self.game.all_sprites, self.game.bullet_sprites])
 
     def screen_constraint(self):
         if self.rect.right > WINDOW_WIDTH:
