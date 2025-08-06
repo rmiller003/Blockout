@@ -1,4 +1,4 @@
-import pygame
+import pygame, time
 from settings import *
 from random import choice
 
@@ -76,6 +76,7 @@ class Ball(pygame.sprite.Sprite):
 
         # active
         self.active = False
+        self.creation_time = time.time()
 
 
 
@@ -102,6 +103,7 @@ class Ball(pygame.sprite.Sprite):
 
             if self.rect.bottom > WINDOW_HEIGHT:
                 self.active = False
+                self.creation_time = time.time()
                 self.direction.y = -1
                 self.game.lose_life()
                 self.kill()
@@ -173,11 +175,14 @@ class Ball(pygame.sprite.Sprite):
             self.rect.midbottom = self.player.rect.midtop
             self.pos = pygame.math.Vector2(self.rect.topleft)
 
+            if time.time() - self.creation_time >= 5:
+                self.active = True
+
 class Bullet(pygame.sprite.Sprite):
     def __init__(self, pos, groups):
         super().__init__(groups)
         self.image = pygame.image.load('bullet.png').convert_alpha()
-        self.image = pygame.transform.scale(self.image, (10, 10))
+        self.image = pygame.transform.scale(self.image, (20, 20))
         self.rect = self.image.get_rect(midbottom=pos)
         self.speed = 600
 
