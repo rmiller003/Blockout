@@ -122,13 +122,6 @@ class Game:
                 if self.lives <= 0:
                     self.game_active = False
 
-    def check_missed_balls(self):
-        if not self.balls and self.game_active:
-            self.lives -= 1
-            self.boing_sound.play()
-            if self.lives > 0:
-                Ball([self.all_sprites, self.balls], self.player, self.block_sprites, self)
-
                 # Draw the Frame
                 self.display_surface.blit(self.bg, (0, 0))
                 self.all_sprites.draw(self.display_surface)
@@ -156,9 +149,15 @@ class Game:
                 text_rect = text_surf.get_rect(center = (WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2 + 100))
                 self.display_surface.blit(text_surf,text_rect)
 
-
             # update window
             pygame.display.update()
+
+    def check_missed_balls(self):
+        if not self.balls and self.game_active:
+            self.lives -= 1
+            self.boing_sound.play()
+            if self.lives > 0:
+                Ball([self.all_sprites, self.balls], self.player, self.block_sprites, self)
 
 
 def main():
