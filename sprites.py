@@ -176,8 +176,8 @@ class Ball(pygame.sprite.Sprite):
 class Bullet(pygame.sprite.Sprite):
     def __init__(self, pos, groups):
         super().__init__(groups)
-        self.image = pygame.Surface((5, 10))
-        self.image.fill('white')
+        self.image = pygame.image.load('ball.png').convert_alpha()
+        self.image = pygame.transform.scale(self.image, (10, 10))
         self.rect = self.image.get_rect(midbottom=pos)
         self.speed = 600
 
