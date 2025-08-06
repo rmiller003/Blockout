@@ -11,7 +11,6 @@ class Game:
 
         # general setup
         pygame.init()
-        pygame.mixer.stop()
         self.display_surface = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
         pygame.display.set_caption('Blockout')
 
@@ -85,6 +84,11 @@ class Game:
         text_surf = self.font.render(score_text, True, (255,255,255))
         text_rect = text_surf.get_rect(midbottom = (WINDOW_WIDTH / 2, WINDOW_HEIGHT - 20))
         self.display_surface.blit(text_surf,text_rect)
+
+    def lose_life(self):
+        self.lives -= 1
+        if self.lives > 0:
+            self.ball = Ball([self.all_sprites, self.balls], self.player, self.block_sprites, self)
 
     def run(self):
         last_time = time.time()

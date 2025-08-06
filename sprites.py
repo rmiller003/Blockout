@@ -76,25 +76,26 @@ class Ball(pygame.sprite.Sprite):
                 self.rect.left = 0
                 self.pos.x = self.rect.x
                 self.direction.x *= -1
+                self.game.boing_sound.play()
 
             if self.rect.right > WINDOW_WIDTH:
                 self.rect.right = WINDOW_WIDTH
                 self.pos.x = self.rect.x
                 self.direction.x *= -1
+                self.game.boing_sound.play()
 
         if direction == 'vertical':
             if self.rect.top < 0:
                 self.rect.top = 0
                 self.pos.y = self.rect.y
                 self.direction.y *= -1
+                self.game.boing_sound.play()
 
             if self.rect.bottom > WINDOW_HEIGHT:
                 self.active = False
                 self.direction.y = -1
-                self.game.lives -= 1
-                #feature/game-improvements
+                self.game.lose_life()
                 self.kill()
-                self.game.lives -= 1
 
 
     def collision(self,direction):
@@ -102,6 +103,7 @@ class Ball(pygame.sprite.Sprite):
         overlap_sprites = pygame.sprite.spritecollide(self,self.blocks,False)
         if self.rect.colliderect(self.player.rect):
             overlap_sprites.append(self.player)
+            self.game.boing_sound.play()
 
         if overlap_sprites:
             if direction == 'horizontal':
@@ -111,10 +113,12 @@ class Ball(pygame.sprite.Sprite):
                         self.pos.x = self.rect.x
                         self.direction.x *= -1
 
+
                     if self.rect.left <= sprite.rect.right and self.old_rect.left >= sprite.old_rect.right:
                         self.rect.left = sprite.rect.right + 1
                         self.pos.x = self.rect.x
                         self.direction.x *= -1
+
 
                     if getattr(sprite,'health',None):
                         sprite.get_damage(1)
@@ -126,10 +130,12 @@ class Ball(pygame.sprite.Sprite):
                         self.pos.y = self.rect.y
                         self.direction.y *= -1
 
+
                     if self.rect.top <= sprite.rect.bottom and self.old_rect.top >= sprite.old_rect.bottom:
                         self.rect.top = sprite.rect.bottom + 1
                         self.pos.y = self.rect.y
                         self.direction.y *= -1
+
 
                     if getattr(sprite, 'health', None):
                         sprite.get_damage(1)
