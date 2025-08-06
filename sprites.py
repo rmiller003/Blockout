@@ -92,6 +92,9 @@ class Ball(pygame.sprite.Sprite):
                 self.active = False
                 self.direction.y = -1
                 self.game.lives -= 1
+                #feature/game-improvements
+                self.kill()
+                self.game.lives -= 1
 
 
     def collision(self,direction):
