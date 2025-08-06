@@ -25,7 +25,6 @@ class Game:
         self.surfacemaker = SurfaceMaker()
         self.player = Player(self.all_sprites,self.surfacemaker)
         self.ball = Ball(self.all_sprites, self.player, self.block_sprites, self)
-        self.stage_setup()
 
         # hearts
         self.heart_surf = pygame.image.load('ball.png').convert_alpha()
@@ -41,10 +40,16 @@ class Game:
         # audio
         # self.bg_music = pygame.mixer.Sound('audio/bg.ogg')
         # self.bg_music.play(loops = -1)
-        # self.ping_sound = pygame.mixer.Sound('audio/ping.wav')
+        self.ping_sound = pygame.mixer.Sound('audio/ping.wav')
+        # self.boing_sound = pygame.mixer.Sound('audio/boing.ogg')
 
         # game state
         self.game_active = True
+
+        # level
+        self.level = 1
+        self.stage_setup()
+
 
     def create_bg(self):
         bg_original = pygame.image.load('bg3.jpg').convert()
@@ -61,7 +66,7 @@ class Game:
                 if col != ' ':
                     # find the x and y position for each individual block
                     x = col_index * (BLOCK_WIDTH + GAP_SIZE) + GAP_SIZE // 2
-                    y = row_index * (BLOCK_HEIGHT + GAP_SIZE) + GAP_SIZE // 2
+                    y = row_index * (BLOCK_HEIGHT + GAP_SIZE) + GAP_SIZE // 2 + self.level * 20
                     Block(col,(x, y),[self.all_sprites,self.block_sprites],self.surfacemaker, self)
 
     def display_hearts(self):
@@ -103,10 +108,13 @@ class Game:
 
                 # check for win/loss
                 if not self.block_sprites:
-                    self.game_active = False
+                    self.level += 1
+                    self.stage_setup()
+                    self.ball.speed *= 1.1
 
                 if self.lives <= 0:
                     self.game_active = False
+                    # self.boing_sound.play()
 
                 # Draw the Frame
                 self.display_surface.blit(self.bg, (0, 0))
