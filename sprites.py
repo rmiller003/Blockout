@@ -176,8 +176,8 @@ class Block(pygame.sprite.Sprite):
 
         if self.health > 0:
             self.image = self.surfacemaker.get_surf(COLOR_LEGEND[str(self.health)],(BLOCK_WIDTH, BLOCK_HEIGHT))
-            self.game.ping_sound.play()
+            # self.game.ping_sound.play()
         else:
             self.game.score += self.score_value
-            self.game.ping_sound.play()
+            # self.game.ping_sound.play()
             self.kill()
