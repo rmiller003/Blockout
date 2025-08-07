@@ -77,11 +77,14 @@ class Game:
 
         if self.level >= 2:
             self.player.speed = 1000
+            self.player.double_bullets = True
         else:
             self.player.speed = 750
+            self.player.double_bullets = False
 
-        for ball in self.balls:
-            ball.speed *= 1.2
+        if self.level > 1:
+            for ball in self.balls:
+                ball.speed *= 1.2
 
         if self.level > 1 and len(self.balls) < 2:
             self.ball = Ball([self.all_sprites, self.balls], self.player, self.block_sprites, self)
