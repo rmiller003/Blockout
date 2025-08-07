@@ -18,6 +18,7 @@ class Player(pygame.sprite.Sprite):
         self.direction = pygame.math.Vector2()
         self.speed = 750
         self.pos = pygame.math.Vector2(self.rect.topleft)
+        self.double_bullets = False
 
 
 
@@ -35,11 +36,14 @@ class Player(pygame.sprite.Sprite):
 
     def shoot(self):
         if len(self.game.bullet_sprites) == 0:
-            bullet_offset = self.rect.width / 4
-            pos1 = (self.rect.centerx - bullet_offset, self.rect.top)
-            pos2 = (self.rect.centerx + bullet_offset, self.rect.top)
-            Bullet(pos1, [self.game.all_sprites, self.game.bullet_sprites])
-            Bullet(pos2, [self.game.all_sprites, self.game.bullet_sprites])
+            if self.double_bullets:
+                bullet_offset = self.rect.width / 4
+                pos1 = (self.rect.centerx - bullet_offset, self.rect.top)
+                pos2 = (self.rect.centerx + bullet_offset, self.rect.top)
+                Bullet(pos1, [self.game.all_sprites, self.game.bullet_sprites])
+                Bullet(pos2, [self.game.all_sprites, self.game.bullet_sprites])
+            else:
+                Bullet(self.rect.midtop, [self.game.all_sprites, self.game.bullet_sprites])
             self.game.gunshot_sound.play()
 
     def screen_constraint(self):
@@ -76,7 +80,7 @@ class Ball(pygame.sprite.Sprite):
         self.old_rect = self.rect.copy()
         self.pos = pygame.math.Vector2(self.rect.topleft)
         self.direction = pygame.math.Vector2((choice((1,-1)),-1))
-        self.speed = 500
+        self.speed = 400
 
         # active
         self.active = False
