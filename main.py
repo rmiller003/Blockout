@@ -75,6 +75,11 @@ class Game:
                     y = row_index * (BLOCK_HEIGHT + GAP_SIZE) + GAP_SIZE // 2 + self.level * 20
                     Block(col,(x, y),[self.all_sprites,self.block_sprites],self.surfacemaker, self)
 
+        if self.level >= 2:
+            self.player.speed = 1000
+        else:
+            self.player.speed = 750
+
         for ball in self.balls:
             ball.speed *= 1.2
 
