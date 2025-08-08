@@ -3,7 +3,8 @@ from settings import *
 from os import walk
 
 class SurfaceMaker:
-    def __init__(self):
+    def __init__(self, assets):
+        self.assets = assets
         # import all the graphics
         for index, info in enumerate(walk('blocks')):
             if index == 0:

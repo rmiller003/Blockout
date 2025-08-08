@@ -1,4 +1,4 @@
-(['C:\\Users\\Robert Miller\\Blockout\\Main.py'],
+(['C:\\Users\\Robert Miller\\Blockout\\main.py'],
  ['C:\\Users\\Robert Miller\\Blockout'],
  [],
  [('C:\\Users\\Robert '
@@ -1018,13 +1018,13 @@
    'c:\\users\\robert '
    'miller\\appdata\\local\\programs\\python\\python39\\lib\\multiprocessing\\__init__.py',
    'PYMODULE'),
-  ('stringprep',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\stringprep.py',
-   'PYMODULE'),
   ('_py_abc',
    'c:\\users\\robert '
    'miller\\appdata\\local\\programs\\python\\python39\\lib\\_py_abc.py',
+   'PYMODULE'),
+  ('stringprep',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\stringprep.py',
    'PYMODULE'),
   ('tracemalloc',
    'c:\\users\\robert '
@@ -1875,65 +1875,65 @@
    'c:\\users\\robert '
    'miller\\appdata\\local\\programs\\python\\python39\\python39.dll',
    'BINARY'),
-  ('SDL2_image.dll',
+  ('libjpeg-9.dll',
    'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\SDL2_image.dll',
-   'BINARY'),
-  ('SDL2_mixer.dll',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\SDL2_mixer.dll',
-   'BINARY'),
-  ('freetype.dll',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\freetype.dll',
-   'BINARY'),
-  ('libopusfile-0.dll',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\libopusfile-0.dll',
-   'BINARY'),
-  ('SDL2_ttf.dll',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\SDL2_ttf.dll',
-   'BINARY'),
-  ('libtiff-5.dll',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\libtiff-5.dll',
-   'BINARY'),
-  ('portmidi.dll',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\portmidi.dll',
-   'BINARY'),
-  ('libmodplug-1.dll',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\libmodplug-1.dll',
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\libjpeg-9.dll',
    'BINARY'),
   ('zlib1.dll',
    'c:\\users\\robert '
    'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\zlib1.dll',
    'BINARY'),
-  ('libwebp-7.dll',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\libwebp-7.dll',
-   'BINARY'),
   ('SDL2.dll',
    'c:\\users\\robert '
    'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\SDL2.dll',
    'BINARY'),
-  ('libpng16-16.dll',
+  ('libtiff-5.dll',
    'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\libpng16-16.dll',
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\libtiff-5.dll',
+   'BINARY'),
+  ('SDL2_image.dll',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\SDL2_image.dll',
+   'BINARY'),
+  ('libopusfile-0.dll',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\libopusfile-0.dll',
+   'BINARY'),
+  ('portmidi.dll',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\portmidi.dll',
    'BINARY'),
   ('libogg-0.dll',
    'c:\\users\\robert '
    'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\libogg-0.dll',
    'BINARY'),
+  ('SDL2_mixer.dll',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\SDL2_mixer.dll',
+   'BINARY'),
+  ('libpng16-16.dll',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\libpng16-16.dll',
+   'BINARY'),
+  ('freetype.dll',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\freetype.dll',
+   'BINARY'),
+  ('libwebp-7.dll',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\libwebp-7.dll',
+   'BINARY'),
+  ('libmodplug-1.dll',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\libmodplug-1.dll',
+   'BINARY'),
+  ('SDL2_ttf.dll',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\SDL2_ttf.dll',
+   'BINARY'),
   ('libopus-0.dll',
    'c:\\users\\robert '
    'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\libopus-0.dll',
-   'BINARY'),
-  ('libjpeg-9.dll',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\libjpeg-9.dll',
    'BINARY'),
   ('numpy.libs\\libscipy_openblas64_-caad452230ae4ddb57899b8b3a33c55c.dll',
    'c:\\users\\robert '
@@ -2211,25 +2211,25 @@
    'c:\\users\\robert '
    'miller\\appdata\\local\\programs\\python\\python39\\VCRUNTIME140.dll',
    'BINARY'),
-  ('pygame\\SDL2.dll',
+  ('pygame\\libjpeg-9.dll',
    'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\SDL2.dll',
-   'BINARY'),
-  ('pygame\\libopus-0.dll',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\libopus-0.dll',
-   'BINARY'),
-  ('pygame\\libogg-0.dll',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\libogg-0.dll',
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\libjpeg-9.dll',
    'BINARY'),
   ('pygame\\zlib1.dll',
    'c:\\users\\robert '
    'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\zlib1.dll',
    'BINARY'),
-  ('pygame\\libjpeg-9.dll',
+  ('pygame\\SDL2.dll',
    'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\libjpeg-9.dll',
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\SDL2.dll',
+   'BINARY'),
+  ('pygame\\libogg-0.dll',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\libogg-0.dll',
+   'BINARY'),
+  ('pygame\\libopus-0.dll',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\libopus-0.dll',
    'BINARY'),
   ('VCRUNTIME140_1.dll',
    'c:\\users\\robert '
@@ -2279,92 +2279,48 @@
   ('boing.ogg', 'C:\\Users\\Robert Miller\\Blockout\\boing.ogg', 'DATA'),
   ('gun shot.ogg', 'C:\\Users\\Robert Miller\\Blockout\\gun shot.ogg', 'DATA'),
   ('ping.ogg', 'C:\\Users\\Robert Miller\\Blockout\\ping.ogg', 'DATA'),
-  ('pygame\\freesansbold.ttf',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\freesansbold.ttf',
-   'DATA'),
   ('pygame\\pygame_icon.bmp',
    'c:\\users\\robert '
    'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\pygame_icon.bmp',
+   'DATA'),
+  ('pygame\\freesansbold.ttf',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\pygame\\freesansbold.ttf',
    'DATA'),
   ('numpy.libs\\.load-order-numpy-2.0.2',
    'c:\\users\\robert '
    'miller\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\numpy.libs\\.load-order-numpy-2.0.2',
    'DATA'),
   ('base_library.zip',
-   'C:\\Users\\Robert Miller\\Blockout\\build\\Main\\base_library.zip',
+   'C:\\Users\\Robert Miller\\Blockout\\build\\main\\base_library.zip',
    'DATA')],
- [('functools',
+ [('types',
    'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\functools.py',
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\types.py',
    'PYMODULE'),
-  ('linecache',
+  ('heapq',
    'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\linecache.py',
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\heapq.py',
    'PYMODULE'),
-  ('_bootlocale',
+  ('abc',
    'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\_bootlocale.py',
-   'PYMODULE'),
-  ('sre_constants',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\sre_constants.py',
-   'PYMODULE'),
-  ('copyreg',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\copyreg.py',
-   'PYMODULE'),
-  ('io',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\io.py',
-   'PYMODULE'),
-  ('stat',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\stat.py',
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\abc.py',
    'PYMODULE'),
   ('reprlib',
    'c:\\users\\robert '
    'miller\\appdata\\local\\programs\\python\\python39\\lib\\reprlib.py',
    'PYMODULE'),
-  ('codecs',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\codecs.py',
-   'PYMODULE'),
-  ('os',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\os.py',
-   'PYMODULE'),
-  ('enum',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\enum.py',
-   'PYMODULE'),
-  ('locale',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\locale.py',
-   'PYMODULE'),
   ('_weakrefset',
    'c:\\users\\robert '
    'miller\\appdata\\local\\programs\\python\\python39\\lib\\_weakrefset.py',
    'PYMODULE'),
-  ('ntpath',
+  ('operator',
    'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\ntpath.py',
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\operator.py',
    'PYMODULE'),
-  ('keyword',
+  ('io',
    'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\keyword.py',
-   'PYMODULE'),
-  ('types',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\types.py',
-   'PYMODULE'),
-  ('sre_parse',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\sre_parse.py',
-   'PYMODULE'),
-  ('traceback',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\traceback.py',
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\io.py',
    'PYMODULE'),
   ('encodings.zlib_codec',
    'c:\\users\\robert '
@@ -2854,29 +2810,41 @@
    'c:\\users\\robert '
    'miller\\appdata\\local\\programs\\python\\python39\\lib\\encodings\\__init__.py',
    'PYMODULE'),
-  ('abc',
+  ('stat',
    'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\abc.py',
-   'PYMODULE'),
-  ('operator',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\operator.py',
-   'PYMODULE'),
-  ('sre_compile',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\sre_compile.py',
-   'PYMODULE'),
-  ('heapq',
-   'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\heapq.py',
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\stat.py',
    'PYMODULE'),
   ('re',
    'c:\\users\\robert '
    'miller\\appdata\\local\\programs\\python\\python39\\lib\\re.py',
    'PYMODULE'),
-  ('warnings',
+  ('posixpath',
    'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\warnings.py',
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\posixpath.py',
+   'PYMODULE'),
+  ('sre_parse',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\sre_parse.py',
+   'PYMODULE'),
+  ('enum',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\enum.py',
+   'PYMODULE'),
+  ('copyreg',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\copyreg.py',
+   'PYMODULE'),
+  ('sre_compile',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\sre_compile.py',
+   'PYMODULE'),
+  ('_bootlocale',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\_bootlocale.py',
+   'PYMODULE'),
+  ('weakref',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\weakref.py',
    'PYMODULE'),
   ('collections.abc',
    'c:\\users\\robert '
@@ -2886,19 +2854,51 @@
    'c:\\users\\robert '
    'miller\\appdata\\local\\programs\\python\\python39\\lib\\collections\\__init__.py',
    'PYMODULE'),
-  ('weakref',
+  ('ntpath',
    'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\weakref.py',
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\ntpath.py',
    'PYMODULE'),
-  ('posixpath',
+  ('locale',
    'c:\\users\\robert '
-   'miller\\appdata\\local\\programs\\python\\python39\\lib\\posixpath.py',
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\locale.py',
    'PYMODULE'),
   ('_collections_abc',
    'c:\\users\\robert '
    'miller\\appdata\\local\\programs\\python\\python39\\lib\\_collections_abc.py',
    'PYMODULE'),
+  ('warnings',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\warnings.py',
+   'PYMODULE'),
+  ('functools',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\functools.py',
+   'PYMODULE'),
+  ('keyword',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\keyword.py',
+   'PYMODULE'),
+  ('traceback',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\traceback.py',
+   'PYMODULE'),
+  ('sre_constants',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\sre_constants.py',
+   'PYMODULE'),
+  ('linecache',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\linecache.py',
+   'PYMODULE'),
+  ('codecs',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\codecs.py',
+   'PYMODULE'),
   ('genericpath',
    'c:\\users\\robert '
    'miller\\appdata\\local\\programs\\python\\python39\\lib\\genericpath.py',
+   'PYMODULE'),
+  ('os',
+   'c:\\users\\robert '
+   'miller\\appdata\\local\\programs\\python\\python39\\lib\\os.py',
    'PYMODULE')])

@@ -2,10 +2,10 @@
 
 
 a = Analysis(
-    ['Main.py'],
+    ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[('ball.png', '.'), ('bg3.jpg', '.'), ('audio.ogg', '.'), ('ping.ogg', '.'), ('boing.ogg', '.'), ('gun shot.ogg', '.')],
+    datas=[('bg3.jpg', '.'), ('ball.png', '.'), ('audio.ogg', '.'), ('ping.ogg', '.'), ('boing.ogg', '.'), ('gun shot.ogg', '.')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -22,7 +22,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='Main',
+    name='main',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
