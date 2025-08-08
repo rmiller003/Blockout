@@ -4,6 +4,17 @@ import pygame, sys, time
 from settings import *
 from sprites import Player, Ball, Block
 from surfacermaker import SurfaceMaker
+import os
+import sys
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller .exe """
+    try:
+        base_path = sys._MEIPASS  # PyInstaller runtime
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
 
 #####
 class Game:
@@ -58,7 +69,7 @@ class Game:
 
 
     def create_bg(self):
-        bg_original = pygame.image.load('bg3.jpg').convert()
+        bg_image = pygame.image.load(resource_path("bg3.jpg")).convert()
         scale_factor = WINDOW_HEIGHT / bg_original.get_height()
         scaled_width = bg_original.get_width() * scale_factor
         scaled_height = bg_original.get_height() * scale_factor
