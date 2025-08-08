@@ -5,6 +5,9 @@ from os import walk
 class SurfaceMaker:
     def __init__(self, assets):
         self.assets = assets
+
+        self.assets['blocks'] = {}  # Add a 'blocks' section to hold the block surfaces
+        
         # import all the graphics
         for index, info in enumerate(walk('blocks')):
             if index == 0:
