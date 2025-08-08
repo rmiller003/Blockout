@@ -2,24 +2,28 @@ import pygame
 from settings import *
 from os import walk
 
+import pygame
+from os import walk # or whatever you use to walk through directories
+
 class SurfaceMaker:
-    def __init__(self, assets):
-        self.assets = {}  # Create empty assets dictionary
-        self.surfacemaker = SurfaceMaker(self.assets)  # ✅ Pass it in
-
-
-        self.assets['blocks'] = {}  # Add a 'blocks' section to hold the block surfaces
+    def __init__(self):  # The __init__ method shouldn't take 'assets' as an argument, it should create them
+        self.assets = {}
+        
+        self.assets['blocks'] = {}
         
         # import all the graphics
         for index, info in enumerate(walk('blocks')):
             if index == 0:
-                self.assets = {color:{} for color in info[1]}
+                self.assets = {color: {} for color in info[1]}
             else:
                 for image_name in info[2]:
                     color_type = list(self.assets.keys())[index - 1]
                     full_path = 'blocks' + f'/{color_type}/' + image_name
-                    surf = pygame.image.load(full_path).convert_alpha()
-                    self.assets[color_type][image_name.split('.')[0]] = surf
+                    try:
+                        surf = pygame.image.load(full_path).convert_alpha()
+                        self.assets[color_type][image_name.split('.')[0]] = surf
+                    except pygame.error as e:
+                        print(f"Could not load image at {full_path}: {e}")
 
     def get_surf(self,block_type,size):
         image = pygame.Surface(size, pygame.SRCALPHA)
