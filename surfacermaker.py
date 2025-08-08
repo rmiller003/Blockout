@@ -4,7 +4,9 @@ from os import walk
 
 class SurfaceMaker:
     def __init__(self, assets):
-        self.assets = assets
+        self.assets = {}  # Create empty assets dictionary
+        self.surfacemaker = SurfaceMaker(self.assets)  # ✅ Pass it in
+
 
         self.assets['blocks'] = {}  # Add a 'blocks' section to hold the block surfaces
         
