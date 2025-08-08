@@ -69,12 +69,13 @@ class Game:
 
 
     def create_bg(self):
-        bg_image = pygame.image.load(resource_path("bg3.jpg")).convert()
+        bg_original = pygame.image.load(resource_path("bg3.jpg")).convert()
         scale_factor = WINDOW_HEIGHT / bg_original.get_height()
-        scaled_width = bg_original.get_width() * scale_factor
-        scaled_height = bg_original.get_height() * scale_factor
+        scaled_width = int(bg_original.get_width() * scale_factor)
+        scaled_height = int(bg_original.get_height() * scale_factor)
         scaled_bg = pygame.transform.scale(bg_original, (scaled_width, scaled_height))
         return scaled_bg
+
 
     def stage_setup(self):
         # cycle through all rows and columns of BLOCK MAP
